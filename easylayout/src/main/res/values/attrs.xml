@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--为了方便扩展其他layout，定义在外层，命名以layout_开头，否则lint会报红警告-->
+    <attr name="layout_radius" format="dimension" />
+    <attr name="layout_shadowColor" format="color" />
+    <attr name="layout_shadowEvaluation" format="dimension" />
+    <attr name="layout_shadowDx" format="dimension" />
+    <attr name="layout_shadowDy" format="dimension" />
+    <!--用统一一个EasyLayout，用于封装读取自定义属性-->
+    <declare-styleable name="EasyLayout">
+        <attr name="layout_radius" />
+        <attr name="layout_shadowColor" />
+        <attr name="layout_shadowEvaluation" />
+        <attr name="layout_shadowDx" />
+        <attr name="layout_shadowDy" />
+    </declare-styleable>
+    <declare-styleable name="EasyLinearLayout_Layout">
+        <attr name="layout_radius" />
+        <attr name="layout_shadowColor" />
+        <attr name="layout_shadowEvaluation" />
+        <attr name="layout_shadowDx" />
+        <attr name="layout_shadowDy" />
+    </declare-styleable>
+    <!--和EasyLayout属性列表一样，但是命名要以XXX_Layout格式，这样开发工具会提示自定义属性-->
+    <declare-styleable name="EasyConstraintLayout_Layout">
+        <attr name="layout_radius" />
+        <attr name="layout_shadowColor" />
+        <attr name="layout_shadowEvaluation" />
+        <attr name="layout_shadowDx" />
+        <attr name="layout_shadowDy" />
+    </declare-styleable>
+</resources>
