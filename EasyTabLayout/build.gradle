@@ -1,0 +1,103 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+
+
+}
+
+dependencies{
+    compileOnly 'androidx.appcompat:appcompat:1.0.2'
+}
+
+group = "com.easywidgets.tablayout"
+version = "1.0.1"
+project.archivesBaseName = "EasyTabLayoutX"
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+}
+
+task androidJavadocsJar(type: Jar) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+
+}
+
+
+
+def siteUrl = 'https://github.com/iamyours/EasyWidgets'
+def gitUrl = 'https://github.com/iamyours/EasyWidgets.git'
+def issueUrl = 'https://github.com/iamyours/EasyWidgets/issues'
+
+install {
+    repositories.mavenInstaller {
+// generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'jar'
+                name 'Simple AndroidX TabLayout'
+                url siteUrl
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'RogerYan'		//填写的一些基本信息
+                        name 'Roger'
+                        email 'yan127422@163.com'
+                    }
+                }
+
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+
+bintray {
+    user = "iamyours"
+    key = "99a4d947b1459a3818a3c1e992cdc16dab01917d"
+    configurations = ['archives']
+    pkg {
+        repo = "maven" //bintray 上面 Package名字
+        name = "EasyTabLayoutX" //bintray 上面项目名
+        desc = 'A TabLayout easy to use in AndroidX'
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        issueTrackerUrl = issueUrl
+        licenses = ["Apache-2.0"]
+        labels = 'java'
+        publicDownloadNumbers = true
+        publish = true
+    }
+}
