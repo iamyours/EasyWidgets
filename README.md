@@ -4,8 +4,11 @@
 ### EasyTabLayout
 在[FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)基础上修改，增加了选中字体大小（tl_textSelectSize）
 ```
-compile 'com.easywidgets.tablayout:EasyTabLayout:1.0.0'
+compile 'com.easywidgets.tablayout:EasyTabLayout:1.0.1'
 ```
+for AndroidX
+```
+compile 'com.easywidgets.tablayout:EasyTabLayoutX:1.0.1'
 ```
  <com.easywidgets.tablayout.EasyTabLayout
         android:id="@+id/tabLayout"
