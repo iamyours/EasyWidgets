@@ -86,7 +86,7 @@ install {
 
 bintray {
     user = "iamyours"
-    key = "99a4d947b1459a3818a3c1e992cdc16dab01917d"
+    key = "xxx"
     configurations = ['archives']
     pkg {
         repo = "maven" //bintray 上面 Package名字
