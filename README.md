@@ -4,26 +4,28 @@
 ### EasyTabLayout
 在[FlycoTabLayout](https://github.com/H07000223/FlycoTabLayout)基础上修改，增加了选中字体大小（tl_textSelectSize）
 ```
-compile 'com.easywidgets.tablayout:EasyTabLayout:1.0.1'
+compile 'com.easywidgets.tablayout:EasyTabLayout:1.0.2'
 ```
 for AndroidX
+在gradle.properties中添加
 ```
-compile 'com.easywidgets.tablayout:EasyTabLayoutX:1.0.1'
+android.useAndroidX=true
+android.enableJetifier=true
 ```
- <com.easywidgets.tablayout.EasyTabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:background="@color/title_black"
-        app:tl_indicator_color="#FFD96F"
-        app:tl_indicator_corner_radius="2dp"
-        app:tl_indicator_gravity="BOTTOM"
-        app:tl_indicator_height="4dp"
-        app:tl_indicator_margin_bottom="4dp"
-        app:tl_textBold="SELECT"
-        app:tl_textSelectColor="#fff"
-        app:tl_textSelectSize="16sp"
-        app:tl_textUnselectColor="#fefefe"
-        app:tl_textsize="15sp"
-        app:tl_underline_height="4dp" />
+  <com.easywidgets.tablayout.EasyTabLayout
+         android:id="@+id/tabLayout"
+         android:layout_width="match_parent"
+         android:layout_height="69dp"
+         android:clipToPadding="false"
+         android:paddingLeft="16dp"
+         android:paddingRight="16dp"
+         app:tl_indicator_color="#f00"
+         app:tl_indicator_height="2dp"
+         app:tl_textBold="SELECT"
+         app:tl_textSelectColor="#333"
+         app:tl_textSelectSize="20sp"
+         app:tl_textUnselectColor="#999"
+         app:tl_textsize="14sp" />
 ```
+效果
+<img src="./screen/easytablayout.gif" width="50%">
