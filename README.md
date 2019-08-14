@@ -30,4 +30,5 @@ android.enableJetifier=true
          app:tl_textsize="14sp" />
 ```
 效果
+
 <img src="./screen/easytablayout.gif" width="50%">
