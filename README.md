@@ -12,6 +12,8 @@ for AndroidX
 android.useAndroidX=true
 android.enableJetifier=true
 ```
+
+```
   <com.easywidgets.tablayout.EasyTabLayout
          android:id="@+id/tabLayout"
          android:layout_width="match_parent"
