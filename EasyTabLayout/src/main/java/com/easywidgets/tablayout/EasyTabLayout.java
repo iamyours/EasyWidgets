@@ -195,6 +195,7 @@ public class EasyTabLayout extends HorizontalScrollView implements ViewPager.OnP
         this.mViewPager.removeOnPageChangeListener(this);
         this.mViewPager.addOnPageChangeListener(this);
         notifyDataSetChanged();
+        initTabTransformer();
     }
 
     /**
@@ -219,7 +220,16 @@ public class EasyTabLayout extends HorizontalScrollView implements ViewPager.OnP
 
         this.mViewPager.removeOnPageChangeListener(this);
         this.mViewPager.addOnPageChangeListener(this);
+        initTabTransformer();
         notifyDataSetChanged();
+    }
+
+    private void initTabTransformer() {
+        if (mTextSelectSize != mTextsize) {
+            TabTransformer transformer = new TabTransformer(this, mTextSelectSize, mTextsize);
+            this.mViewPager.setPageTransformer(true,
+                    transformer);
+        }
     }
 
 
@@ -341,8 +351,6 @@ public class EasyTabLayout extends HorizontalScrollView implements ViewPager.OnP
             if (tv_tab_title != null) {
                 boolean isSelect = i == mCurrentTab;
                 tv_tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
-                float textSize = isSelect ? mTextSelectSize : mTextsize;
-                tv_tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 tv_tab_title.setPadding((int) mTabPadding, 0, (int) mTabPadding, 0);
                 if (mTextAllCaps) {
                     tv_tab_title.setText(tv_tab_title.getText().toString().toUpperCase());
@@ -417,8 +425,6 @@ public class EasyTabLayout extends HorizontalScrollView implements ViewPager.OnP
             TextView tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
             if (tab_title != null) {
                 tab_title.setTextColor(isSelect ? mTextSelectColor : mTextUnselectColor);
-                float textSize = isSelect ? mTextSelectSize : mTextsize;
-                tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 if (mTextBold == TEXT_BOLD_WHEN_SELECT) {
                     tab_title.getPaint().setFakeBoldText(isSelect);
                 }
@@ -802,6 +808,7 @@ public class EasyTabLayout extends HorizontalScrollView implements ViewPager.OnP
 
     public TextView getTitleView(int tab) {
         View tabView = mTabsContainer.getChildAt(tab);
+        if (tabView == null) return null;
         TextView tv_tab_title = (TextView) tabView.findViewById(R.id.tv_tab_title);
         return tv_tab_title;
     }
